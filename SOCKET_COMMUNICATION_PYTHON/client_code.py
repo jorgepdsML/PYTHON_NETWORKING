@@ -1,3 +1,11 @@
+"""
+written by Jorge Orlando Miranda Ñahui
+Codigo del lado del cliente que se creara un SOCKET con un HOST local y PUERTO 65432 .
+Los datos que se enviaran al servidor se convertiran a un blujo de bytes (STREAM BYTES ) mediante 
+el uso del modulo pickle ,este paso es llamado Serialización . 
+Los datos que se enviaran deben estar en formato de BYTES 
+La serialización se realizara mediante la función dumps del modulo pickle
+"""
 import socket
 import numpy as np
 import cv2
@@ -12,9 +20,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     time.sleep(5)
     #mensaje a enviar
     img="PYTHON SOCKET CLIENTE"
-    # serializar de datos a bytes
+    # serializar de objetos de python a flujo de bytes
     datos=pickle.dumps(img)
-
     print("RECIEN ENVIANDO DESPUES DE 1 SEGUNDO")
     time.sleep(1)
     # enviar todo los bytes al servidor
@@ -26,5 +33,5 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     #Enviar ultimo mensaje
     s.sendall(pickle.dumps("EL CLIENTE HA CADUCADO"))
 
-
+#codigo de fin de programa
 print("FIN PROGRAMA DEL  CLIENTE")
