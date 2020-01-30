@@ -2,7 +2,14 @@
 Written by Jorge Orlando Miranda Ñahui
 Este codigo es de parte de servidor que utilizara tambien un objeto SOCKET . el servidor estara escuchando
 nuevas conexiones de los clientes , luego de aceptar alguna conexion se procedera a esperar datos del cliente . 
-el servidor estara leyendo los datos que el cliente estara enviando . 
+el servidor estara leyendo los datos que el cliente estara enviando . los datos que se leera estaran en formato bytes
+se tiene que convertir de bytes al tipo de dato que esperamos . Se debe saber de antemano cual fue la codificación que 
+el cliente ha realizado en los bytes que transmitira al servidor.
+
+Se utilizara el modulo pickle para realizar los procesos de Serialización y Deserealización .
+Serialización permite convertir un objeto de python a uno de flujo de bytes
+Deserialización permite convertir de flujo de bytes al correspondiente objeto de python. 
+
 El servidor y cliente  utilizaran el protocolo de transporte conocido como TCP y tambien dirección IP V4
 para construir un objeto (SOCKET) se utilizara la clase socket del modulo socket
 socket.AF_INET indica indica IP V4
